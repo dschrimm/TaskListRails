@@ -1,3 +1,23 @@
-<%= "To do: #{ @id }" %>
+ <!-- "To do: #{ @id }"
 
-<%= "Task info: #{ @new_task }" %>
+ "Task info: #{ @new_task }" -->
+
+<h1>Task: <%= @task.name %></h1>
+
+<ul>
+  <li><strong>Description:</strong> <%= @task.description %></li>
+  <li><strong>Completed:</strong>
+    <% if @task.completed_at != nil %>
+      <% @task.completed = true %>
+    <% else %>
+      <% @task.completed = false %>
+    <% end %>
+    <%= @task.completed %></li>
+  <li><strong>Completed at:</strong>
+    <% if @task.completed %>
+      <%= @task.completed_at %>
+    <% else %>
+      In progress.
+    <% end %>
+    </li>
+</ul>

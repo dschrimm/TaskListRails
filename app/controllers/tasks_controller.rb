@@ -1,31 +1,32 @@
 class TasksController < ApplicationController
-  attr_accessor :tasks
 
   def index
-    @tasks = [
-      {
-        name: "read",
-        description: "read books",
-        completion_status: "in progress",
-        completion_date: "TBD"
-      },
-      {
-        name: "cook",
-        description: "chop and heat food in a delicious manner",
-        completion_status: "not started",
-        completion_date: "today, 6pm"
-      },
-      {
-        name: "walk",
-        description: "take imaginary dog for a walk",
-        completion_status: "done",
-        completion_date: "today, 7am"
-      }
-    ]
+    @tasks = Task.all
+    # @tasks = [
+    #   {
+    #     name: "read",
+    #     description: "read books",
+    #     completion_status: "in progress",
+    #     completion_date: "TBD"
+    #   },
+    #   {
+    #     name: "cook",
+    #     description: "chop and heat food in a delicious manner",
+    #     completion_status: "not started",
+    #     completion_date: "today, 6pm"
+    #   },
+    #   {
+    #     name: "walk",
+    #     description: "take imaginary dog for a walk",
+    #     completion_status: "done",
+    #     completion_date: "today, 7am"
+    #   }
+    # ]
   end
 
   def show
-    @id = params[:id]
+    @task = Task.find(params[:id])
+    # @id = params[:id]
 
     # @new_task = {
     #   name: params[:name],
