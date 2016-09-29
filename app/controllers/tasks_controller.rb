@@ -38,4 +38,26 @@ class TasksController < ApplicationController
     # @new_task = @tasks[0]
 
   end
+
+  def new
+    @task = Task.new
+  end
+
+  def create
+    @task = Task.new(task_params)
+    if @task.save
+      # SAVED SUCCESSFULLY
+    else
+      # DID NOT SAVE
+      render :new
+    end
+
+    redirect_to tasks_path
+  end
+
+  private
+
+  def task_params
+    params.require(:task).permit(:name, :description, :completed_at, :completed)
+  end
 end
