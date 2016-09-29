@@ -26,16 +26,6 @@ class TasksController < ApplicationController
 
   def show
     @task = Task.find(params[:id])
-    # @id = params[:id]
-
-    # @new_task = {
-    #   name: params[:name],
-    #   description: params[:description],
-    #   completion_status: params[:completion_status],
-    #   completion_date: params[:completion_date],
-    # }
-
-    # @new_task = @tasks[0]
 
   end
 
@@ -53,6 +43,29 @@ class TasksController < ApplicationController
     end
 
     redirect_to tasks_path
+  end
+
+  def edit
+    @task = Task.find(params[:id])
+  end
+
+  def update
+    @task = Task.find(params[:id])
+    if @task.update(task_params)
+      # SUCCESS
+      redirect_to tasks_path
+    else
+      # NOPE
+      render :edit
+    end
+  end
+
+  def confirm
+  end
+
+  def delete
+    @task = Task.find(params[:id])
+    @task.destroy
   end
 
   private

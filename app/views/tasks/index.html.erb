@@ -16,8 +16,9 @@
 <ol>
   <% @tasks.each do |t| %>
     <p>
-      <li><strong><%= "#{ t.name.capitalize }: " %></strong><%= link_to "Details here", task_path(t) %></li>
-
+      <li><strong><%= "#{ t.name.capitalize }: " %></strong><%= link_to "Details here", task_path(t) %>
+      <%= link_to "Edit task", task_edit_path(t) %></li>
+      <%= link_to "Delete task", task_delete_path(t) %></li>
     </p>
     <% end %>
 </ol>
