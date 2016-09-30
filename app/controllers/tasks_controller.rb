@@ -33,6 +33,10 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     if @task.update(task_params)
       # SUCCESS
+      if @task.completed_at == nil
+        @task.completed = false
+        @task.save
+      end
       redirect_to task_path
     else
       # NOPE

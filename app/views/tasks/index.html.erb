@@ -3,7 +3,17 @@
 <ol>
   <% @tasks.each do |t| %>
     <p>
-      <li><strong><%= "#{ t.name.capitalize }: " %></strong><%= link_to "Details here", task_path(t) %>
+      <li>
+        <% if t.completed == true %>
+        <strong style = "text-decoration:line-through">
+            <%= "#{ t.name.capitalize }: " %>
+        </strong>
+        <% else %>
+          <strong style = "text-decoration:none">
+          <%= "#{ t.name.capitalize }: " %>
+          </strong>
+        <% end %>
+      <%= link_to "Details here", task_path(t) %>
       <%= link_to "Edit task", task_edit_path(t) %>
       <%= link_to "Mark as completed", task_complete_path(t) %>
       <%= link_to "Delete task", task_path(t), method: :delete, data: { confirm: "Are you sure you want to delete the task?" } %></li>
