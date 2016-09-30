@@ -1,24 +1,12 @@
 <h1>all of the tasks</h1>
 
-<!-- <ol>
-   @tasks.each do |e|
-  <li>
-    <ul>
-     e.each do |i, j|
-      <li>"#{ i }: #{ j }"</li>
-     end
-    </ul>
-  </li>
-  <br>
- end
-</ol> -->
-
 <ol>
   <% @tasks.each do |t| %>
     <p>
       <li><strong><%= "#{ t.name.capitalize }: " %></strong><%= link_to "Details here", task_path(t) %>
-      <%= link_to "Edit task", task_edit_path(t) %></li>
-      <%= link_to "Delete task", task_delete_path(t) %></li>
+      <%= link_to "Edit task", task_edit_path(t) %>
+      <%= link_to "Mark as completed", task_complete_path(t) %>
+      <%= link_to "Delete task", task_path(t), method: :delete, data: { confirm: "Are you sure you want to delete the task?" } %></li>
     </p>
     <% end %>
 </ol>

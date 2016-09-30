@@ -1,3 +1,7 @@
+<%= render partial: "new", locals: { new: @task } %>
+
+<h1>Edit task</h1>
+
 <%= form_for @task, method: :patch do |f| %>
   <p><%= f.label :name %>
   <%= f.text_field :name %></p>
@@ -14,3 +18,6 @@
     <%= f.submit "Submit" %>
   </p>
 <% end %>
+
+<p><%= link_to "Cancel - return to task list", tasks_path %></p>
+<p><%= link_to "Cancel - return to task details", task_path %></p>

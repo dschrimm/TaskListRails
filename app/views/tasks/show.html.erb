@@ -6,13 +6,14 @@
 
 <ul>
   <li><strong>Description:</strong> <%= @task.description %></li>
-  <li><strong>Completed:</strong>
+  <li><strong>Completed?</strong>
     <% if @task.completed_at != nil %>
       <% @task.completed = true %>
+      Yes
     <% else %>
       <% @task.completed = false %>
+      Not yet
     <% end %>
-    <%= @task.completed %></li>
   <li><strong>Completed at:</strong>
     <% if @task.completed %>
       <%= @task.completed_at %>
@@ -21,3 +22,9 @@
     <% end %>
     </li>
 </ul>
+
+<p><%= link_to "Edit task", task_edit_path%></p>
+<p>
+  <%= link_to "Mark as completed", task_complete_path %>
+</p>
+<p><%= link_to "Return to full task list", tasks_path %></p>

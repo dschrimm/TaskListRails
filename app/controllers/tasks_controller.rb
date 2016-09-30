@@ -2,26 +2,6 @@ class TasksController < ApplicationController
 
   def index
     @tasks = Task.all
-    # @tasks = [
-    #   {
-    #     name: "read",
-    #     description: "read books",
-    #     completion_status: "in progress",
-    #     completion_date: "TBD"
-    #   },
-    #   {
-    #     name: "cook",
-    #     description: "chop and heat food in a delicious manner",
-    #     completion_status: "not started",
-    #     completion_date: "today, 6pm"
-    #   },
-    #   {
-    #     name: "walk",
-    #     description: "take imaginary dog for a walk",
-    #     completion_status: "done",
-    #     completion_date: "today, 7am"
-    #   }
-    # ]
   end
 
   def show
@@ -53,19 +33,24 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     if @task.update(task_params)
       # SUCCESS
-      redirect_to tasks_path
+      redirect_to task_path
     else
       # NOPE
       render :edit
     end
   end
 
-  def confirm
+  def complete
+    @task = Task.find(params[:id])
+    @task.completed = true
+    @task.completed_at = DateTime.now.to_date
+    @task.save
+    redirect_to task_path
   end
 
-  def delete
-    @task = Task.find(params[:id])
-    @task.destroy
+  def destroy
+    Task.find(params[:id]).destroy
+    redirect_to tasks_path
   end
 
   private
