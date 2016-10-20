@@ -1,5 +1,7 @@
 class TasksController < ApplicationController
 
+  before_action :require_login, only: [:index, :show]
+
   def index
     @tasks = Task.all
   end

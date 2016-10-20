@@ -1,9 +1,17 @@
 Rails.application.routes.draw do
 
+  root 'sessions#login'
+
   get "/auth/:provider/callback" =>  "sessions#create"
 
+  get '/sessions' => 'sessions#index'
+  delete '/sessions', to: 'sessions#destroy'
+
+  get '/sessions/log_out', as: 'logged_out'
+
+
   # resources :tasks, except: [:create, :new, :edit, :update]
-  root 'tasks#index'
+  # root 'tasks#index'
   get '/tasks' => 'tasks#index'
   #
   get '/tasks/new' => 'tasks#new', as: 'task_new'
