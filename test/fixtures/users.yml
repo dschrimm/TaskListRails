@@ -3,5 +3,5 @@
 snoopy:
   name: Snoopy
   email: snoopy@snoopy.com
-  uid:
+  uid: 123
   provider: github
