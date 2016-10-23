@@ -19963,3 +19963,222 @@ Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
 
 
 Started GET "/auth/github" for ::1 at 2016-10-20 18:19:46 -0700
+
+
+Started GET "/" for ::1 at 2016-10-21 23:07:03 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#login as HTML
+  Rendered sessions/login.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 394ms (Views: 384.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-4c88f4656f5ddb4cadca97b73e3d323fb3eb8ca30d2bbdf0bc756b4734e64c16.css?body=1" for ::1 at 2016-10-21 23:07:04 -0700
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-10-21 23:07:04 -0700
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-10-21 23:07:04 -0700
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-10-21 23:07:04 -0700
+
+
+Started GET "/assets/tasks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-10-21 23:07:04 -0700
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-10-21 23:07:04 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-10-21 23:07:04 -0700
+
+
+Started GET "/auth/github" for ::1 at 2016-10-21 23:07:11 -0700
+
+
+Started GET "/auth/github" for ::1 at 2016-10-21 23:07:11 -0700
+
+
+Started GET "/auth/github/callback?code=0d3a5cb4fa66bf405d7f&state=c45fafa1eb3bd2599b14880bf9d65f9b4df3eb3dd95e23a3" for ::1 at 2016-10-21 23:09:15 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"0d3a5cb4fa66bf405d7f", "state"=>"c45fafa1eb3bd2599b14880bf9d65f9b4df3eb3dd95e23a3", "provider"=>"github"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? AND "users"."provider" = ? LIMIT 1  [["uid", 16520733], ["provider", "github"]]
+Redirected to http://localhost:3000/sessions
+Completed 302 Found in 23ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/sessions" for ::1 at 2016-10-21 23:09:16 -0700
+Processing by SessionsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered sessions/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 28ms (Views: 25.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.self-4c88f4656f5ddb4cadca97b73e3d323fb3eb8ca30d2bbdf0bc756b4734e64c16.css?body=1" for ::1 at 2016-10-21 23:09:16 -0700
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-10-21 23:09:16 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-10-21 23:09:16 -0700
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-10-21 23:09:16 -0700
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-10-21 23:09:16 -0700
+
+
+Started GET "/assets/tasks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-10-21 23:09:16 -0700
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-10-21 23:09:16 -0700
+
+
+Started DELETE "/sessions" for ::1 at 2016-10-21 23:10:39 -0700
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"WOZUd5D0NeaWkOst7DZK8lso2qxhybZuAeml7sZ+Gro4gz47Tbv4L2Mx1ltNeSn9O0b6xi30AYXXgHRdNRt0Eg=="}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Redirected to http://localhost:3000/sessions/log_out
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/sessions/log_out" for ::1 at 2016-10-21 23:10:39 -0700
+Processing by SessionsController#log_out as HTML
+Redirected to http://localhost:3000/
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-10-21 23:10:39 -0700
+Processing by SessionsController#login as HTML
+  Rendered sessions/login.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 16ms (Views: 15.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tasks" for ::1 at 2016-10-21 23:10:44 -0700
+Processing by TasksController#index as HTML
+Redirected to http://localhost:3000/
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-10-21 23:10:44 -0700
+Processing by SessionsController#login as HTML
+  Rendered sessions/login.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 13ms (Views: 12.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tasks/1" for ::1 at 2016-10-21 23:10:49 -0700
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"1"}
+Redirected to http://localhost:3000/
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-10-21 23:10:49 -0700
+Processing by SessionsController#login as HTML
+  Rendered sessions/login.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 13ms (Views: 12.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tasks/new" for ::1 at 2016-10-21 23:10:52 -0700
+Processing by TasksController#new as HTML
+Redirected to http://localhost:3000/auth/github
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/github" for ::1 at 2016-10-21 23:10:52 -0700
+
+
+Started GET "/auth/github/callback?code=c1a23950e3b17695dad9&state=8b62c17c3e250f4afecaac9b99fde89b601e439f5e3c633a" for ::1 at 2016-10-21 23:10:52 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"c1a23950e3b17695dad9", "state"=>"8b62c17c3e250f4afecaac9b99fde89b601e439f5e3c633a", "provider"=>"github"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" = ? AND "users"."provider" = ? LIMIT 1  [["uid", 16520733], ["provider", "github"]]
+Redirected to http://localhost:3000/sessions
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/tasks/new" for ::1 at 2016-10-21 23:10:55 -0700
+Processing by TasksController#new as HTML
+Redirected to http://localhost:3000/auth/github
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/github" for ::1 at 2016-10-21 23:10:55 -0700
+
+
+Started GET "/auth/github/callback?code=1b09b9e823d85ee86262&state=80497315626cfde0486782fb0ea0ed045ad24ae363394219" for ::1 at 2016-10-21 23:10:55 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"1b09b9e823d85ee86262", "state"=>"80497315626cfde0486782fb0ea0ed045ad24ae363394219", "provider"=>"github"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? AND "users"."provider" = ? LIMIT 1[0m  [["uid", 16520733], ["provider", "github"]]
+Redirected to http://localhost:3000/sessions
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/sessions" for ::1 at 2016-10-21 23:10:56 -0700
+Processing by SessionsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered sessions/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 19ms (Views: 18.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/tasks" for ::1 at 2016-10-21 23:11:12 -0700
+Processing by TasksController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."users_id" = ?[0m  [["users_id", 1]]
+  Rendered tasks/index.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 39ms (Views: 26.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/tasks" for ::1 at 2016-10-21 23:11:19 -0700
+Processing by TasksController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mTask Load (0.1ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."users_id" = ?[0m  [["users_id", 1]]
+  Rendered tasks/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 16ms (Views: 15.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.self-4c88f4656f5ddb4cadca97b73e3d323fb3eb8ca30d2bbdf0bc756b4734e64c16.css?body=1" for ::1 at 2016-10-21 23:11:19 -0700
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-10-21 23:11:19 -0700
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-10-21 23:11:19 -0700
+
+
+Started GET "/assets/tasks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-10-21 23:11:19 -0700
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-10-21 23:11:19 -0700
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-10-21 23:11:20 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-10-21 23:11:20 -0700
+
+
+Started DELETE "/sessions" for ::1 at 2016-10-21 23:13:06 -0700
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"tQM7kr5E7rKzjDC50C/18A2Ah/HvL1b9bzEON7fCtinVZlHeYwsje0YtDc9xYJb/be6nm6MS4Ra5WN+ERKfYgQ=="}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/sessions/log_out
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/sessions/log_out" for ::1 at 2016-10-21 23:13:06 -0700
+Processing by SessionsController#log_out as HTML
+Redirected to http://localhost:3000/
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-10-21 23:13:06 -0700
+Processing by SessionsController#login as HTML
+  Rendered sessions/login.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 16ms (Views: 15.2ms | ActiveRecord: 0.0ms)

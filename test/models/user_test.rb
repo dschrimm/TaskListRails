@@ -5,12 +5,11 @@ class UserTest < ActiveSupport::TestCase
     assert users(:snoopy).valid?
   end
 
-  # test "If a user is not logged in they cannot see their task." do
-  #   session[:user_id] = nil  # ensure no one is logged in
-  #
-  #   get :show, id: tasks(:sample_task).id
-  #   # if they are not logged in they cannot see the resource and are redirected to login.
-  #   assert_redirected session_path
-  #   assert_equal "You must be logged in first", flash[:notice]
-  # end
+  test "Create a user with missing fields" do
+    user = User.new
+    user.name = "a"
+    user.uid = 1
+    user.provider = "github"
+    assert_not user.valid?
+  end
 end

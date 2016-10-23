@@ -63,3 +63,102 @@ UserTest: test_Create_a_valid_user
 UserTest: test_If_a_user_is_not_logged_in_they_cannot_see_their_task.
 ---------------------------------------------------------------------
   [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "tasks"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "tasks" ("name", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2016-10-22 06:12:34', '2016-10-22 06:12:34', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "tasks" ("name", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2016-10-22 06:12:34', '2016-10-22 06:12:34', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("name", "email", "uid", "provider", "created_at", "updated_at", "id") VALUES ('Snoopy', 'snoopy@snoopy.com', 123, 'github', '2016-10-22 06:12:34', '2016-10-22 06:12:34', 1012845766)
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------
+UserTest: test_Create_a_valid_user
+----------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1012845766]]
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.7ms)[0m  [1mDELETE FROM "tasks"[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "tasks" ("name", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2016-10-22 06:13:15', '2016-10-22 06:13:15', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "tasks" ("name", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2016-10-22 06:13:15', '2016-10-22 06:13:15', 298486374)[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("name", "email", "uid", "provider", "created_at", "updated_at", "id") VALUES ('Snoopy', 'snoopy@snoopy.com', 123, 'github', '2016-10-22 06:13:15', '2016-10-22 06:13:15', 1012845766)[0m
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------
+UserTest: test_Create_a_valid_user
+----------------------------------
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1012845766]]
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------------------------------------------
+UserTest: test_If_a_user_is_not_logged_in_they_cannot_see_their_task.
+---------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.8ms)[0m  [1mDELETE FROM "tasks"[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "tasks" ("name", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2016-10-22 06:25:30', '2016-10-22 06:25:30', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "tasks" ("name", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2016-10-22 06:25:30', '2016-10-22 06:25:30', 298486374)[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("name", "email", "uid", "provider", "created_at", "updated_at", "id") VALUES ('Snoopy', 'snoopy@snoopy.com', 123, 'github', '2016-10-22 06:25:30', '2016-10-22 06:25:30', 1012845766)[0m
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------
+UserTest: test_Can_be_assigned_a_task
+-------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tasks" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "foo"], ["created_at", "2016-10-22 06:25:30.758586"], ["updated_at", "2016-10-22 06:25:30.758586"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1012845766]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (7.0ms)[0m  [1mUPDATE "tasks" SET "users_id" = ?, "updated_at" = ? WHERE "tasks"."id" = ?[0m  [["users_id", 1012845766], ["updated_at", "2016-10-22 06:25:30.768634"], ["id", 980190963]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mTask Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "tasks" WHERE "tasks"."user_id" = ? AND "tasks"."id" = ? LIMIT 1[0m  [[nil, 1012845766], ["id", 980190963]]
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+----------------------------------
+UserTest: test_Create_a_valid_user
+----------------------------------
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1012845766]]
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.6ms)[0m  [1mDELETE FROM "tasks"[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO "tasks" ("name", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2016-10-22 06:31:24', '2016-10-22 06:31:24', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "tasks" ("name", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2016-10-22 06:31:24', '2016-10-22 06:31:24', 298486374)[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("name", "email", "uid", "provider", "created_at", "updated_at", "id") VALUES ('Snoopy', 'snoopy@snoopy.com', 123, 'github', '2016-10-22 06:31:24', '2016-10-22 06:31:24', 1012845766)[0m
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------
+UserTest: test_Create_a_user_with_missing_fields
+------------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+----------------------------------
+UserTest: test_Create_a_valid_user
+----------------------------------
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1012845766]]
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (1.9ms)[0m  [1mDELETE FROM "tasks"[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "tasks" ("name", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2016-10-23 20:35:05', '2016-10-23 20:35:05', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "tasks" ("name", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2016-10-23 20:35:05', '2016-10-23 20:35:05', 298486374)[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("name", "email", "uid", "provider", "created_at", "updated_at", "id") VALUES ('Snoopy', 'snoopy@snoopy.com', 123, 'github', '2016-10-23 20:35:05', '2016-10-23 20:35:05', 1012845766)[0m
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------------
+UserTest: test_Create_a_user_with_missing_fields
+------------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+----------------------------------
+UserTest: test_Create_a_valid_user
+----------------------------------
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1012845766]]
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
